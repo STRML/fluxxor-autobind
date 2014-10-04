@@ -9,7 +9,11 @@ var FluxChildMixin    = Fluxxor.FluxChildMixin(React);
 var AutoBind          = require('fluxxor-autobind');
 
 // Thanks markdownify
-document.getElementById('readme').innerHTML = require('./README.md');
+document.getElementById('container').innerHTML = require('./README.md');
+var liveDemoHeader = document.getElementById('live-demo');
+var liveDemo = document.createElement('div');
+liveDemo.id = 'live-demo-container';
+liveDemoHeader.parentNode.insertBefore(liveDemo, liveDemoHeader.nextSibling);
 
 var App = React.createClass({
   mixins: [FluxMixin],
@@ -75,4 +79,4 @@ var stores = {
 
 var flux = new Fluxxor.Flux(stores, {});
 AutoBind.install(flux);
-React.renderComponent(<App flux={flux} />, document.getElementById('container'));
+React.renderComponent(<App flux={flux} />, liveDemo);
