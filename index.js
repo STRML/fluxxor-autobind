@@ -8,6 +8,9 @@ var FluxMixin         = Fluxxor.FluxMixin(React);
 var FluxChildMixin    = Fluxxor.FluxChildMixin(React);
 var AutoBind          = require('fluxxor-autobind');
 
+// Thanks markdownify
+document.getElementById('readme').innerHTML = require('./README.md');
+
 var App = React.createClass({
   mixins: [FluxMixin],
   render: function() {
@@ -56,19 +59,13 @@ var NestedChildComponent = React.createClass({
 });
 
 var TimeStore = Fluxxor.createStore({
-  actions: {
-    'FLUX_INIT': 'onFluxInit',
-  },
+  autoBind: ['theTime'],
   initialize: function() {
     this.theTime = new Date().toString();
     setInterval(function() {
       this.theTime = new Date().toString();
       this.emit('change');
     }.bind(this), 1000);
-  },
-  onFluxInit: function() {
-    // Unfortunately we have to wait for flux to actually exist in order to register this
-    this.flux.autoBind.registerProp(this, 'theTime');
   }
 });
 
@@ -76,13 +73,6 @@ var stores = {
   timeStore: new TimeStore()  
 };
 
-var actions = {
-  fluxInit: function() {
-    this.dispatch("FLUX_INIT", {});
-  }
-};
-
-var flux = new Fluxxor.Flux(stores, actions);
+var flux = new Fluxxor.Flux(stores, {});
 AutoBind.install(flux);
-flux.actions.fluxInit(); // lame
-React.renderComponent(<App flux={flux} />, document.body);
+React.renderComponent(<App flux={flux} />, document.getElementById('container'));

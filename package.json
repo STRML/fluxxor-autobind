@@ -1,13 +1,13 @@
 {
   "name": "fluxxor-autobind-docs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Docs for AutoBind plugin for Fluxxor to help prevent spaghetti props wiring.",
   "main": "index.js",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify -t reactify ./index.js | uglifyjs -cm > bundle.js ",
-    "develop": "watchify -d -t reactify ./index.js -o  bundle.js "
+    "build": "browserify -t reactify -t markdownify ./index.js | uglifyjs -cm > bundle.js ",
+    "develop": "watchify -d -t reactify -t markdownify ./index.js -o  bundle.js "
   },
   "repository": {
     "type": "git",
@@ -27,8 +27,9 @@
   "dependencies": {
     "browserify": "^6.0.2",
     "fluxxor": "^1.4.3",
-    "fluxxor-autobind": "^0.1.0",
+    "fluxxor-autobind": "^0.2.0",
     "lodash": "^2.4.1",
+    "markdownify": "^0.1.0",
     "react": "^0.11.2",
     "reactify": "^0.14.0",
     "watchify": "^1.0.6"
