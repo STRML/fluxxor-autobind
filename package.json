@@ -4,7 +4,8 @@
   "description": "AutoBind plugin for Fluxxor to help prevent spaghetti props wiring.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run jshint && mocha test/spec",
+    "jshint": "jsxhint lib/ test/"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,12 @@
   "homepage": "https://github.com/STRML/fluxxor-autobind",
   "dependencies": {
     "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "jsdom": "^1.0.1",
+    "mocha": "^1.21.4",
+    "node-jsx": "^0.11.0",
+    "react": "^0.11.2"
   }
 }
