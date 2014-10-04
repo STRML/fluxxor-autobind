@@ -3,12 +3,17 @@ Fluxxor-AutoBind
 
 An auto-binding plugin for Fluxxor to prevent spaghetti props wiring.
 
+Installation
+------------
+
+`npm install fluxxor-autobind`
+
 Usage
 -----
 
 Usage requires three simple steps:
 
-1. Install `AutoBind` after initializing Flux.
+1. Install `AutoBind` into your Flux instance after initializing it.
 
   ```javascript
   var flux = new Fluxxor.Flux(stores, actions);
@@ -23,12 +28,14 @@ Usage requires three simple steps:
     // Names must be unique, and must be equal to the property 
     // name on the store.
     autoBind: ['foo', 'bar'],
+    // ...
   })
   ```
 
 3. Reference these properties in your views.
 
   ```javascript
+  var AutoBind = require('fluxxor-autobind');
   var DeeplyNestedView = React.createClass({
     mixins: [
       // Flux must be available to the view.
