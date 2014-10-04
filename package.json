@@ -1,0 +1,27 @@
+{
+  "name": "fluxxor-autobind",
+  "version": "0.1.0",
+  "description": "AutoBind plugin for Fluxxor to help prevent spaghetti props wiring.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/STRML/fluxxor-autobind.git"
+  },
+  "keywords": [
+    "fluxxor",
+    "autobind",
+    "react"
+  ],
+  "author": "Samuel Reed <sam@tixelated.com> (http://strml.net/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/STRML/fluxxor-autobind/issues"
+  },
+  "homepage": "https://github.com/STRML/fluxxor-autobind",
+  "dependencies": {
+    "lodash": "^2.4.1"
+  }
+}
