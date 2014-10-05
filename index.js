@@ -20,7 +20,7 @@ var App = React.createClass({
   render: function() {
     return (
       <div className="app">
-        App component
+        App Component
         <ParentComponent /> 
       </div>
     );
@@ -55,7 +55,7 @@ var NestedChildComponent = React.createClass({
   render: function() {
     return (
       <div className="nestedChildComponent">
-        NestedChildComponent<br />
+        Nested Child Component<br />
         {this.state.theTime}
       </div>
     );
